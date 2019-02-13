@@ -1,6 +1,6 @@
 import { module } from 'angular';
 
-import { HELP_CONTENTS_REGISTRY, HelpContentsRegistry } from '@spinnaker/core';
+import { HelpContentsRegistry } from '@spinnaker/core';
 
 const helpContents: {[key: string]: string} = {
   'pipeline.config.canary.clusterPairs': `
@@ -52,8 +52,8 @@ const helpContents: {[key: string]: string} = {
 };
 
 export const CANARY_HELP = 'spinnaker.kayenta.help.contents';
-module(CANARY_HELP, [HELP_CONTENTS_REGISTRY])
-  .run((helpContentsRegistry: HelpContentsRegistry) => {
+module(CANARY_HELP, [])
+  .run(() => {
     'ngInject';
-    Object.keys(helpContents).forEach(key => helpContentsRegistry.register(key, helpContents[key]));
+    Object.keys(helpContents).forEach(key => HelpContentsRegistry.register(key, helpContents[key]));
   });

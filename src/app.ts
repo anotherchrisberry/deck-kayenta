@@ -13,9 +13,9 @@ module('netflix.spinnaker', [
   KAYENTA_MODULE,
   KUBERNETES_V1_MODULE,
   KUBERNETES_V2_MODULE,
-]).run((applicationDataSourceRegistry: ApplicationDataSourceRegistry) => {
+]).run(() => {
   'ngInject';
-  applicationDataSourceRegistry.setDataSourceOrder([
+  ApplicationDataSourceRegistry.setDataSourceOrder([
     'executions', 'serverGroups', 'tasks', 'loadBalancers', 'securityGroups', 'canaryConfigs', 'config'
   ]);
 });
